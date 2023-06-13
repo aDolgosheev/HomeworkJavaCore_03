@@ -25,33 +25,6 @@ public class Main {
         for (Map.Entry<String, String> file : mapPathFiles.entrySet()) {
             createFile(mainPathName, file, logs);
         }
-
-//        File src = new File("C:\\_java\\other\\Games\\src");
-//        createFolder(src, logs);
-//        File res = new File("C:\\_java\\other\\Games\\res");
-//        createFolder(res, logs);
-//        File savegames = new File("C:\\_java\\other\\Games\\savegames");
-//        createFolder(savegames, logs);
-//        File temp = new File("C:\\_java\\other\\Games\\temp");
-//        createFolder(temp, logs);
-//        File main = new File("C:\\_java\\other\\Games\\src\\main");
-//        createFolder(main, logs);
-//        File test = new File("C:\\_java\\other\\Games\\src\\test");
-//        createFolder(test, logs);
-//        File mainJava = new File("C:\\_java\\other\\Games\\src\\main", "Main.java");
-//        createFile(mainJava, logs);
-//        File utilsJava = new File("C:\\_java\\other\\Games\\src\\main", "Utils.java");
-//        createFile(utilsJava, logs);
-//        File drawables = new File("C:\\_java\\other\\Games\\res\\drawables");
-//        createFolder(drawables, logs);
-//        File vectors = new File("C:\\_java\\other\\Games\\res\\vectors");
-//        createFolder(vectors, logs);
-//        File icons = new File("C:\\_java\\other\\Games\\res\\icons");
-//        createFolder(icons, logs);
-//        File tempTXT = new File("C:\\_java\\other\\Games\\temp", "temp.txt");
-//        createFile(tempTXT, logs);
-//
-
     }
 
     public static void createFolder(String mainPathName, String folderName, StringBuilder logs) {
