@@ -17,6 +17,35 @@ public class Main {
         createSave(save02);
         createSave(save03);
 
+        createZipArchive();
+
+        File saveFolder = new File("C:\\_java\\other\\Games\\savegames\\");
+        if (saveFolder.listFiles() == null) {
+            System.out.println("Папка пустая");
+        } else {
+            for (File file : saveFolder.listFiles()) {
+                if (!file.getName().contains(".zip")) {
+                    if (file.delete()) {
+                        System.out.println(file.getName() + " успешно удален.");
+                    } else {
+                        System.out.println("Ошибка удаления файла");
+                    }
+                }
+            }
+        }
+
+    }
+
+    public static void createSave(GameProgress saveName) {
+        try (FileOutputStream fos = new FileOutputStream("C:\\_java\\other\\Games\\savegames\\" + saveName.getName());
+             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+            oos.writeObject(saveName);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static void createZipArchive() {
         try (ZipOutputStream zout = new ZipOutputStream(new FileOutputStream("C:\\_java\\other\\Games\\savegames\\zip_savegames.zip"));
              FileInputStream fis1 = new FileInputStream("C:\\_java\\other\\Games\\savegames\\save01.dat");
              FileInputStream fis2 = new FileInputStream("C:\\_java\\other\\Games\\savegames\\save02.dat");
@@ -43,31 +72,6 @@ public class Main {
             zout.write(buffer);
             zout.closeEntry();
 
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        File saveFolder = new File("C:\\_java\\other\\Games\\savegames\\");
-        if (saveFolder.listFiles() == null) {
-            System.out.println("Папка пустая");
-        } else {
-            for (File file : saveFolder.listFiles()) {
-                if (!file.getName().contains(".zip")) {
-                    if (file.delete()) {
-                        System.out.println(file.getName() + " успешно удален.");
-                    } else {
-                        System.out.println("Ошибка удаления файла");
-                    }
-                }
-            }
-        }
-
-    }
-
-    public static void createSave(GameProgress saveName) {
-        try (FileOutputStream fos = new FileOutputStream("C:\\_java\\other\\Games\\savegames\\" + saveName.getName());
-             ObjectOutputStream oos = new ObjectOutputStream(fos)) {
-            oos.writeObject(saveName);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
