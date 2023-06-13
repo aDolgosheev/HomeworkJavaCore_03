@@ -3,12 +3,16 @@ package task_01;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-
+        String mainPathName = "C:\\_java\\other\\Games\\";
         StringBuilder logs = new StringBuilder();
+        List<String> list = new ArrayList<>();
+
         File src = new File("C:\\_java\\other\\Games\\src");
         createFolder(src, logs);
         File res = new File("C:\\_java\\other\\Games\\res");
